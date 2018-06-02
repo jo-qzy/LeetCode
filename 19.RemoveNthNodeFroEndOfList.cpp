@@ -9,7 +9,7 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n) {
 	//要删除倒数第n个节点，有两种方式
 	//常规方式，找到倒数第n + 1个节点
 	//连接倒数n + 1和倒数n - 1，释放n
-    int count = n + 1;
+	int count = n + 1;
 	struct ListNode* fast = head;
 	struct ListNode* slow = head;
 	struct ListNode* dst = head;
