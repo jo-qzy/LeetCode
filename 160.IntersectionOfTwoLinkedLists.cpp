@@ -8,12 +8,12 @@
  */
 class Solution1 {
 public:
-    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+	ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
 		//两种方法：
 		//1.找到两个尾节点，若相同，相交，长的链表先走相差的步数，两者同时走找交点
 		//2.同样的找尾指针，若相同，相交，将尾连任意表的头构成环，转换成求环入口问题
 		//此种方法为第一种，第二种在下面
-        int len1 = 0, len2 = 0;
+		int len1 = 0, len2 = 0;
 		int diff = 0;
 		ListNode * cur1 = headA, *cur2 = headB;
 		if (cur1 == NULL || cur2 == NULL)
@@ -67,7 +67,7 @@ public:
 
 class Solution2 {
 public:
-    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+	ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
 		ListNode * cur1 = headA, *cur2 = headB;
 		ListNode * tmp = NULL;
 		if (cur1 == NULL || cur2 == NULL)
