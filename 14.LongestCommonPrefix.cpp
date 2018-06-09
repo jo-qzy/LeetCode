@@ -1,15 +1,15 @@
 char* longestCommonPrefix(char** strs, int strsSize) {
-    assert(strs);
+	assert(strs);
 	if (strsSize == 1)
 	{
 		//字符串只有一个，直接返回字符串就完事了
 		return *(strs + 0);
 	}
-    if (strsSize == 0)
-    {
+	if (strsSize == 0)
+	{
 		//没有字符串，忍不住吐槽一下，这个测试太坑了，还能传0个字符串。
-        return "";
-    }
+		return "";
+	}
 	char* head = *(strs + 0);
 	char* end = *(strs + 0);//第一个字符串与后面字符串相同部分尾部
 	char* traval = *(strs + 1);//用于在head和end之间走
