@@ -1,5 +1,5 @@
 int myAtoi(char* str) {
-    assert(str);
+	assert(str);
 	char* cur = str;
 	long long ret = 0;
 	int flag = 1;
@@ -16,11 +16,11 @@ int myAtoi(char* str) {
 		flag = -1;
 		cur++;
 	}
-    else if(*cur == '+')
+	else if (*cur == '+')
 	{
 		//跳过正符号位，想题目一定要仔细，其他都过了，栽在这里了
-        cur++;
-    }
+		cur++;
+	}
 	else if (*cur < '0' || *cur > '9')
 	{
 		//无法转成整数，直接返回0
