@@ -1,5 +1,5 @@
 char* intToRoman(int num) {
-    int mul = 1000;
+	int mul = 1000;
 	int tmp = 0;
 	char* ret = (char*)malloc(sizeof(char) * 16);
 	//没有c++中的string那么方便，不能直接拼接，所以干脆开一个最大的
@@ -65,7 +65,7 @@ char* intToRoman(int num) {
 				break;
 			}
 		}
-        mul /= 10;
+		mul /= 10;
 	}
 	return ret;
 }
