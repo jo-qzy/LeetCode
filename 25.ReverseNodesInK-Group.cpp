@@ -1,11 +1,11 @@
 /**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
- 
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     struct ListNode *next;
+* };
+*/
+
 bool JudgeNodeNum(struct ListNode* cur, int k)
 {
 	//得判断一下长度够不够翻转
@@ -25,11 +25,11 @@ struct ListNode* reverseKGroup(struct ListNode* head, int k) {
 	struct ListNode* ret = head;
 	struct ListNode *cur_end = NULL, *prev_end = NULL;
 	int count = k;
-    if (head == NULL || k == 1)
-    {
+	if (head == NULL || k == 1)
+	{
 		//翻转k为1或者为空，直接返回
-        return ret;
-    }
+		return ret;
+	}
 	while (JudgeNodeNum(cur, k) == true)
 	{
 		count = k;
@@ -56,10 +56,10 @@ struct ListNode* reverseKGroup(struct ListNode* head, int k) {
 		}
 		prev = NULL;
 	}
-    if (cur_end != NULL)
-    {
+	if (cur_end != NULL)
+	{
 		//链接剩余部分
-        cur_end->next = cur;        
-    }
+		cur_end->next = cur;
+	}
 	return ret;
 }
