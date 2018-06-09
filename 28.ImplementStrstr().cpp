@@ -1,9 +1,9 @@
 int strStr(char* haystack, char* needle) {
-    if ((haystack == NULL || needle == NULL) || *needle == '\0')
-    {
-        return 0;
-    }
-    const char * dst_cur = haystack;
+	if ((haystack == NULL || needle == NULL) || *needle == '\0')
+	{
+		return 0;
+	}
+	const char * dst_cur = haystack;
 	const char * src_cur = needle;
 	while (*dst_cur != '\0')
 	{
