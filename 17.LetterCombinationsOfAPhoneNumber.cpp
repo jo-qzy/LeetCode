@@ -5,7 +5,7 @@
 char** letterCombinations(char* digits, int* returnSize) {
 	//正常求法是递归求解，但是c写起来真的是太不方便了，不能像c++那样string + string
 	//而且一般递归问题改成非递归都很麻烦，不过经历了一下午还是解决了
-    char* cur = digits;
+	char* cur = digits;
 	int cur_divide = 0;//当前划分区间
 	int prev_divide = 0;//前一次划分区间
 	char** ret = NULL;
@@ -32,7 +32,7 @@ char** letterCombinations(char* digits, int* returnSize) {
 	{
 		*(ret + i) = (char*)malloc(sizeof(char) * str_legth);
 	}
-    if (str_legth == 1)
+	if (str_legth == 1)
 	{
 		*returnSize = 0;
 		return ret;
@@ -60,13 +60,13 @@ char** letterCombinations(char* digits, int* returnSize) {
 				}
 				ret_start += prev_divide;
 			}
-            ch_index++;
+			ch_index++;
 			start += cur_divide;
 		}
 		cur++;
 	}
 	//最后在字符串尾部加'\0'
-    for (i = 0; i < (*returnSize); i++)
+	for (i = 0; i < (*returnSize); i++)
 	{
 		*(*(ret + i) + (cur - digits)) = '\0';
 	}
