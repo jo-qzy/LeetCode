@@ -1,12 +1,12 @@
 /**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     struct ListNode *next;
+* };
+*/
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
-    int sum = 0, carry = 0;
+	int sum = 0, carry = 0;
 	struct ListNode* ret = NULL;
 	struct ListNode* cur = NULL;
 	struct ListNode* new_node = NULL;
