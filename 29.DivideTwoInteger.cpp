@@ -1,5 +1,5 @@
 int divide(int dividend, int divisor) {
-    long long divd = dividend, div = divisor;
+	long long divd = dividend, div = divisor;
 	int flag = 1;
 	int ret = 0;
 	if (divd < 0)
