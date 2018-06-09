@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int findDuplicate(vector<int>& nums) {
+	int findDuplicate(vector<int>& nums) {
 		//典型的位图应用，顺便复习了一下位图
 		int * bitmap = (int*)calloc((nums.size() / 32 + 1), sizeof(int));
 		for (int i = 0; i < nums.size(); i++)
