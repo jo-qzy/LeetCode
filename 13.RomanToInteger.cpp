@@ -42,5 +42,5 @@ int romanToInt(char* s) {
 		}
 		cur++;
 	}
-    return ret;
+	return ret;
 }
