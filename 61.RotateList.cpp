@@ -95,3 +95,51 @@ public:
         return ret;
     }
 };
+
+//解法3
+class Solution3 {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        ListNode* fast = head;
+		ListNode* slow = head;
+		ListNode* new_head = head;
+        int count = 0;
+		//前两种方法更直观，这个方法是在前两种基础上优化了一下
+		//虽然时间复杂度依旧为O(n)，但是相同情况下这种方法会少走k步
+        if (head == NULL || k == 0)
+        {
+            return head;
+        }
+		while (k)
+		{
+            count++;
+            if (k == 0 && fast->next == NULL)
+            {
+				//如果k为0说明已经找到那个需要翻转的链表的尾节点了
+                break;
+            }
+            k--;//k的值减放此处是防止出现1,2然后旋转为2的情况出现
+			//如果你不理解为什么放这里，将k--放在while便能知道
+			fast = fast->next;
+            if (fast == NULL)
+			{
+				k = k % count;
+                if (k == 0)
+                {
+					//如果翻转长度为链表长度的倍数，相当于没翻转
+                    return head;
+                }
+                fast = head;
+			}
+		}
+		while (fast->next)
+		{
+			slow = slow->next;
+			fast = fast->next;
+		}
+		new_head = slow->next;
+		slow->next = NULL;
+		fast->next = head;
+		return new_head;
+    }
+};
