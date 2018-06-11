@@ -1,28 +1,28 @@
 /**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     ListNode *next;
+*     ListNode(int x) : val(x), next(NULL) {}
+* };
+*/
 /**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
 class Solution {
 public:
-    TreeNode* sortedListToBST(ListNode* head) {
-        TreeNode* ret = NULL;
+	TreeNode* sortedListToBST(ListNode* head) {
+		TreeNode* ret = NULL;
 		//convert是递归函数，需要传入的参数为当前节点的
 		convert(&ret, head, NULL);
 		return ret;
-    }
+	}
 private:
 	void convert(TreeNode** root, ListNode* head, ListNode* tail)
 	{
@@ -40,7 +40,7 @@ private:
 		convert(&(*root)->right, middle->next, tail);
 	}
 
-    ListNode* findMiddleListNode(ListNode* head, ListNode* end)
+	ListNode* findMiddleListNode(ListNode* head, ListNode* end)
 	{
 		//找中间节点
 		if (head == end)
