@@ -1,51 +1,32 @@
 class Solution {
 public:
 	int longestValidParentheses(string s) {
-		vector<char> stack;
-		int max_length = 0;
-		int prev_length = 0;
-		int cur_length = 0;
+		vector<int> index;
+		int max = 0;
 		for (int i = 0; i < s.size(); i++)
 		{
-			if (s[i] == '(')
+			//当碰到右括号才有可能存在有效序列，且有左括号与之匹配
+			if (s[i] == ')' && index.empty() == false && s[index.back()] == '(')
 			{
-				stack.push_back('(');
-			}
-			else if (s[i] == ')')
-			{
-				if (stack.empty() != true)
+				//左括号的下标出栈
+				index.pop_back();
+				if (index.empty() == true)
 				{
-					cur_length += 2;
-					stack.pop_back();
-					if (stack.empty() == true)
-					{
-						prev_length = cur_length + prev_length;
-						cur_length = 0;
-					}
+					//如果序列为空，说明i + 1均为有效序列
+					max = i + 1;
 				}
-				else
+				else if (max < i - index.back())
 				{
-					if (max_length < cur_length + prev_length)
-					{
-						max_length = cur_length + prev_length;
-						prev_length = 0;
-					}
-					cur_length = 0;
+					//index存有效序列开始的下标，与i相差的值为有效序列长度
+					max = i - index.back();
 				}
 			}
+			else
+			{
+				//如果不是右括号或者没有与之匹配的左括号，入栈下标
+				index.push_back(i);
+			}
 		}
-		if (stack.empty() == true && max_length < cur_length + prev_length)
-		{
-			max_length = cur_length + prev_length;
-		}
-		else if (stack.empty() == false && max_length < cur_length)
-		{
-			max_length = cur_length;
-		}
-		else if (cur_length == 0 && max_length < prev_length)
-		{
-			max_length = prev_length;
-		}
-		return max_length;
+		return max;
 	}
 };
