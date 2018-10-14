@@ -2,10 +2,9 @@ class Solution {
 public:
 	int maxSubArray(vector<int>& nums) {
 		int size = nums.size();
-		nums.push_back(0);//需要计算前n个数的和，在后面插一个0方便计算
+		nums.push_back(0);//如果min_index的最大和是前n个数，那么要求和则减去这个0
 		int min_index = size;
-		int ret = nums[0];//ret首先等于数列的第一个数
-						  //先看懂算法再思考为什么要在最后插0
+		int ret = nums[0];
 		for (int i = 1; i < size; i++)
 		{
 			//将每个位置的数置成前n个序列的和
