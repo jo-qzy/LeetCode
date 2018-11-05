@@ -72,3 +72,44 @@ char** letterCombinations(char* digits, int* returnSize) {
 	}
 	return ret;
 }
+
+//c++版本
+class Solution {
+public:
+	vector<string> letterCombinations(string digits) {
+        if (digits.size() == 0)
+            return vector<string>();
+		string::iterator cur = digits.begin();
+		int n = 1;
+		vector<string> key = { string(), string(), "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+		while (cur != digits.end())
+		{
+			if (*cur != '7' && *cur != '9')
+				n *= 3;
+			else
+				n *= 4;
+			cur++;
+		}
+		vector<string> ret(n);
+		vector<string>::iterator p = ret.begin();
+		cur = digits.begin();
+		int cur_size = n;
+		while (cur != digits.end())
+		{
+			string::iterator key_cur = key[*cur - '0'].begin();
+			cur_size /= key[*cur - '0'].size();
+			for (int i = 0; i < n; i += cur_size)
+			{
+				for (int j = i; j < i + cur_size; j++)
+				{
+					ret[j] += *key_cur;
+				}
+				key_cur++;
+				if (key_cur == key[*cur - '0'].end())
+					key_cur = key[*cur - '0'].begin();
+			}
+			cur++;
+		}
+		return ret;
+	}
+};
