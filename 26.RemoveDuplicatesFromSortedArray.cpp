@@ -13,3 +13,21 @@ int removeDuplicates(int* nums, int numsSize) {
 	}
 	return size;
 }
+
+//c++
+class Solution {
+public:
+	int removeDuplicates(vector<int>& nums) {
+		if (nums.size() == 0)
+			return 0;
+		int fast = 0, slow = 0;
+		while (fast != nums.size())
+		{
+			if (nums[fast] != nums[slow])
+				nums[++slow] = nums[fast];
+			fast++;
+		}
+		nums.resize(slow + 1);
+		return slow + 1;
+	}
+};
